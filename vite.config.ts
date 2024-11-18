@@ -7,6 +7,7 @@ export default defineConfig({
     reactRouter({
       // Server-side render by default, to enable SPA mode set this to `false`
       ssr: true,
+      prerender: true,
     }),
     tsconfigPaths(),
   ],

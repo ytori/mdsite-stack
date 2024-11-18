@@ -1,5 +1,6 @@
 import type { MetaFunction } from 'react-router';
-import { Welcome } from '../welcome';
+import { Button } from '~/components/ui/button';
+import { ThemeToggleButton } from '~/components/theme';
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,5 +10,11 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div className="mx-auto text-center">
+      <h1>This is home</h1>
+      <Button>Button</Button>
+      <ThemeToggleButton />
+    </div>
+  );
 }
