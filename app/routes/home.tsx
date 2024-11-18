@@ -1,10 +1,10 @@
-import type { MetaFunction } from "react-router";
-import { Welcome } from "../welcome";
+import type { MetaFunction } from 'react-router';
+import { Welcome } from '../welcome';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: 'New React Router App' },
+    { name: 'description', content: 'Welcome to React Router!' },
   ];
 };
 
