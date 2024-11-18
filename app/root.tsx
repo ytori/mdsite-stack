@@ -1,7 +1,7 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import type { LinksFunction } from 'react-router';
 import { ThemeProvider } from '~/components/theme';
-import script from '~/components/theme/inline-script.js?url';
+import script from '~/components/theme/inline-script.js?raw';
 import '~/app.css';
 
 export const links: LinksFunction = () => [
@@ -25,10 +25,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <script src={script} />
+        <script dangerouslySetInnerHTML={{ __html: script }} />
       </head>
       <body>
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -37,9 +37,5 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return (
-    <ThemeProvider>
-      <Outlet />
-    </ThemeProvider>
-  );
+  return <Outlet />;
 }
