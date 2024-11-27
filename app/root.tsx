@@ -1,8 +1,16 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
-import type { LinksFunction } from 'react-router';
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  type LinksFunction,
+} from 'react-router';
+import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from '~/components/theme';
-import script from '~/components/theme/inline-script.js?raw';
-import '~/app.css';
+import { script } from '~/components/theme/inline-script';
+import { components } from '~/components/mdx-components';
+import stylesheet from '~/app.css?url';
 
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -15,6 +23,7 @@ export const links: LinksFunction = () => [
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
   },
+  { rel: 'stylesheet', href: stylesheet },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -28,7 +37,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: script }} />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <MDXProvider components={components}>{children}</MDXProvider>
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
