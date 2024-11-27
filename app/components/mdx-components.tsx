@@ -2,20 +2,13 @@ import { ComponentProps, forwardRef } from 'react';
 import { Link } from 'react-router';
 import { validateHandle } from '~/types/handle';
 
-
 const Anchor = forwardRef<HTMLAnchorElement, ComponentProps<'a'>>(
-  function ReactRouterLink
-  (
-    { href = '', ...props },
-    forwardedRef
-  ) {
-    return (
-      <Link {...props} to={href} ref={forwardedRef} />
-    )
-  }
-)
+  function ReactRouterLink({ href = '', ...props }, forwardedRef) {
+    return <Link {...props} to={href} ref={forwardedRef} />;
+  },
+);
 
-Anchor.displayName = 'Anchor'
+Anchor.displayName = 'Anchor';
 
 function ContentWrapper({
   children,

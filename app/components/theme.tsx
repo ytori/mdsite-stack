@@ -1,8 +1,14 @@
-import { ReactNode, useEffect, useState, createContext, useContext } from 'react';
+import {
+  ReactNode,
+  useEffect,
+  useState,
+  createContext,
+  useContext,
+} from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { Button } from './ui/button';
 
-const storageKey = "theme"
+const storageKey = 'theme';
 
 type Theme = 'dark' | 'light';
 
@@ -16,9 +22,7 @@ const initialState: ThemeProviderState = {
   setTheme: () => {},
 };
 
-const ThemeProviderContext =
-  createContext<ThemeProviderState>(initialState);
-
+const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 function withFlashingDisabled(fn: () => void) {
   const disableTransition = () => {
@@ -57,9 +61,7 @@ function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (theme == null) {
-      const initialTheme = document.documentElement.classList.contains(
-        'dark',
-      )
+      const initialTheme = document.documentElement.classList.contains('dark')
         ? 'dark'
         : 'light';
       setTheme(initialTheme);
@@ -90,37 +92,36 @@ function ThemeProvider({ children }: { children: ReactNode }) {
 }
 
 function useTheme() {
-    const context = useContext(ThemeProviderContext);
-  
-    if (context == null)
-      throw new Error(
-        '"useTheme" must be called within a "ThemeProvider" component',
-      );
-  
-    return context;
-  }
-  
+  const context = useContext(ThemeProviderContext);
+
+  if (context == null)
+    throw new Error(
+      '"useTheme" must be called within a "ThemeProvider" component',
+    );
+
+  return context;
+}
 
 function ThemeToggleButton() {
-    const { theme, setTheme } = useTheme();
-  
-    return (
-      <Button
-        variant="outline"
-        size="icon"
-        className="bg-transparent"
-        onClick={() => {
-          if (theme) {
-            setTheme(theme === 'dark' ? 'light' : 'dark');
-          }
-        }}
-      >
-        <Sun className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-        <Moon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-        <span className="sr-only">Toggle theme</span>
-      </Button>
-    );
-  }
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <Button
+      variant="outline"
+      size="icon"
+      className="bg-transparent"
+      onClick={() => {
+        if (theme) {
+          setTheme(theme === 'dark' ? 'light' : 'dark');
+        }
+      }}
+    >
+      <Sun className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  );
+}
 
 const script = `try {
   if (
@@ -128,17 +129,10 @@ const script = `try {
     (!("${storageKey}" in localStorage) &&
       window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
+    localStorage.setItem("${storageKey}", 'dark');
     document.documentElement.classList.toggle('dark');
     document.documentElement.style.colorScheme = 'dark';
   }
 } catch (_) {}`.trim();
 
-
-  export {
-    type Theme,
-    ThemeProvider,
-    useTheme,
-    ThemeToggleButton,
-    script
-  }
-  
+export { type Theme, ThemeProvider, useTheme, ThemeToggleButton, script };
