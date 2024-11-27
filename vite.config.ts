@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import mdx from '@mdx-js/rollup';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
+import rehypeShiki from '@shikijs/rehype';
 import { validateHandle } from './app/types/handle';
 import remarkReactRouerFrontmatter from './scripts/remark-react-router-frontmatter';
 
@@ -52,7 +53,17 @@ export default defineConfig({
           ],
           [remarkGfm],
         ],
-        rehypePlugins: [],
+        rehypePlugins: [
+          [
+            rehypeShiki,
+            {
+              themes: {
+                light: 'github-light-default',
+                dark: 'github-dark-default',
+              },
+            },
+          ],
+        ],
       }),
     },
     reactRouter(),
