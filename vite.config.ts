@@ -45,7 +45,7 @@ export default defineConfig({
                     content: `${title} | MdsiteStack`,
                   },
                   { property: 'og:type', content: 'website' },
-                  { property: 'og:url', content: 'http://localhost' }, //TODO
+                  { property: 'og:url', content: 'http://localhost' }, //TODO その他プロパティなども
                 ];
               },
             },

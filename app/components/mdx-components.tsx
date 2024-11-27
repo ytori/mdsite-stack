@@ -1,10 +1,21 @@
+import { ComponentProps, forwardRef } from 'react';
 import { Link } from 'react-router';
 import { validateHandle } from '~/types/handle';
 
-function MyLink({ href, ...other }: React.ComponentProps<'a'>) {
-  //TODO Remark側で拡張子はいじる
-  return <Link {...other} to={href?.replace('.mdx', '') ?? ''} />;
-}
+
+const Anchor = forwardRef<HTMLAnchorElement, ComponentProps<'a'>>(
+  function ReactRouterLink
+  (
+    { href = '', ...props },
+    forwardedRef
+  ) {
+    return (
+      <Link {...props} to={href} ref={forwardedRef} />
+    )
+  }
+)
+
+Anchor.displayName = 'Anchor'
 
 function ContentWrapper({
   children,
@@ -30,6 +41,6 @@ function ContentWrapper({
 }
 
 export const components = {
-  a: MyLink,
+  a: Anchor,
   wrapper: ContentWrapper,
 } as const;

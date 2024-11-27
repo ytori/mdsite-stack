@@ -26,11 +26,13 @@ export async function loader() {
     .filter(({ path }) => path?.startsWith('docs/'))
     .map(({ path, module }) => {
       const result = validateHandle(module.handle);
-      if (!path || !result.success) {
-        throw new Error('invalid "handle definition"');
+      if (!result.success) {
+        throw new Error('invalid frontmatter', {
+          cause: result.error,
+        });
       }
       return {
-        url: path,
+        url: path!,
         title: result.data.title,
       } satisfies NavItem;
     });
@@ -83,7 +85,7 @@ function TableOfContentsDrawer({ navItems }: { navItems: NavItem[] }) {
         <Menu className="size-5" />
       </Button>
       <DrawerContent>
-        <div className="max-h-[50vh] overflow-y-scroll p-4">
+        <div className="max-h-[50vh] min-h-[30vh] overflow-y-scroll p-4">
           <TableOfContents
             navItems={navItems}
             onClick={() => {
