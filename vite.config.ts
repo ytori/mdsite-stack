@@ -6,6 +6,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import rehypeShiki from '@shikijs/rehype';
 import { validateHandle } from './app/types/handle';
+import { generateMeta } from './app/lib/seo';
 import remarkReactRouerFrontmatter from './scripts/remark-react-router-frontmatter';
 
 export default defineConfig({
@@ -31,23 +32,7 @@ export default defineConfig({
                   );
                 }
 
-                const {
-                  data: { title, description },
-                } = result;
-
-                return [
-                  { title: `${title} | MdsiteStack` },
-                  {
-                    name: 'description',
-                    content: description,
-                  },
-                  {
-                    property: 'og:title',
-                    content: `${title} | MdsiteStack`,
-                  },
-                  { property: 'og:type', content: 'website' },
-                  { property: 'og:url', content: 'http://localhost' }, //TODO その他プロパティなども
-                ];
+                return generateMeta(result.data);
               },
             },
           ],

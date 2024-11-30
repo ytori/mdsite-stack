@@ -2,12 +2,10 @@ import { Link, type MetaFunction } from 'react-router';
 import { Button } from '~/components/ui/button';
 import { Header } from '~/components/header';
 import { Footer } from '~/components/footer';
+import { generateMeta } from '~/lib/seo';
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: 'MdSite Stack' },
-    { name: 'description', content: 'Welcome to MdSite Stack!' },
-  ];
+  return generateMeta();
 };
 
 export default function Home() {
