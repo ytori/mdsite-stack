@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  html.dark .shiki,
+  html.dark .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+
+  .prose pre {
+    @apply overflow-x-auto border border-gray-200 dark:border-none;
+  }
+
+  body {
+    @apply bg-white dark:bg-black;
+  }
+}

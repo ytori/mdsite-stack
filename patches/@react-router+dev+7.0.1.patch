@@ -1,0 +1,17 @@
+diff --git a/node_modules/@react-router/dev/dist/cli/index.js b/node_modules/@react-router/dev/dist/cli/index.js
+index 266c57f..0300f63 100644
+--- a/node_modules/@react-router/dev/dist/cli/index.js
++++ b/node_modules/@react-router/dev/dist/cli/index.js
+@@ -744,6 +744,12 @@ async function writeAll(ctx) {
+   const typegenDir = getTypesDir(ctx);
+   import_node_fs2.default.rmSync(typegenDir, { recursive: true, force: true });
+   Object.values(ctx.config.routes).forEach((route) => {
++
++    if([".md", ".mdx"].includes(Path2.extname(route.file))){
++      console.warn(`[patch-package] Skipping type generation for "${route.file}" until the issue is resolved. For more details, please refer to https://github.com/remix-run/react-router/issues/12362.`)
++      return;
++    }
++
+     const typesPath = getTypesPath(ctx, route);
+     const content = generate(ctx, route);
+     import_node_fs2.default.mkdirSync(Path4.dirname(typesPath), { recursive: true });

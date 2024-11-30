@@ -1,0 +1,51 @@
+---
+title: Guideline
+description: A guide on how to use MDSite Stack
+---
+
+## Want to add documentation?
+
+By default, place .mdx or .md files under `app/routes/docs`.
+For example, `app/routes/docs/hello.md` will be accessible at `/docs/hello`.
+
+## Markdown Syntax Rules
+
+By default, it supports [GitHub Flavored Markdown](https://github.github.com/gfm/). You can find a brief guide to the syntax in the [Markdown Syntax](/docs/markdown), so please refer to that as well.
+Additionally, the following are required in the Frontmatter:
+
+- `title`
+- `description`
+
+These Frontmatter fields are used in the `<meta>` tags.
+
+```md
+---
+title: Hello World
+description: This is the documentation about Hello World
+---
+
+## Hello
+
+This is my first article.
+```
+
+## Want to change routing?
+
+Modify `app/routes.ts`.
+Please refer to the [Route Module](https://reactrouter.com/start/framework/route-module) for more details.
+
+## Want to change styles?
+
+By default, the content section of the documentation uses [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography).
+If you want to apply custom styles to the components converted from MDX, refer to [@mdx-js/react](https://mdxjs.com/packages/react/) to customize the components.
+
+To customize the documentation menu, modify `app/routes/_layout.tsx`.
+
+## Want to change `<meta>` tags?
+
+By default, the content defined in the Frontmatter is output to the `<meta>` tags via the Route Module's [`meta`](https://reactrouter.com/start/framework/route-module#meta).
+If you want to customize it, modify the settings in `vite.config.ts`.
+
+## Want to add Remark or Rehype plugins?
+
+Add them to `vite.config.ts`.
