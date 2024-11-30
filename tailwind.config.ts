@@ -5,7 +5,7 @@ import typographyPlugin from '@tailwindcss/typography';
 
 export default {
   darkMode: ['class'],
-  content: ['./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}'],
+  content: ['./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx,mdx}'],
   theme: {
     extend: {
       fontFamily: {

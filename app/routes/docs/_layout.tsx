@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
-import { Button } from '~/components/ui/button';
+import { buttonVariants, Button } from '~/components/ui/button';
 import { ScrollArea } from '~/components/ui/scroll-area';
 import {
   Drawer,
@@ -10,9 +10,10 @@ import {
 } from '~/components/ui/drawer';
 import { Header } from '~/components/header';
 import { Footer } from '~/components/footer';
-import { Link, Outlet } from 'react-router';
+import { NavLink, Outlet } from 'react-router';
 import { validateHandle } from '~/types/handle';
 import type { Route } from './+types/_layout';
+import { cn } from '~/lib/utils';
 
 interface NavItem {
   title: string;
@@ -48,16 +49,22 @@ function TableOfContents({
   return (
     <nav className="space-y-2">
       {navItems.map((item) => (
-        <Button
+        <NavLink
           key={item.title}
-          asChild
-          variant="link"
-          className="block h-fit whitespace-normal"
+          to={item.url}
+          onClick={onClick}
+          className={({ isActive }) =>
+            cn(
+              buttonVariants({
+                variant: 'link',
+              }),
+              'block h-fit whitespace-normal break-all',
+              isActive && 'font-extrabold',
+            )
+          }
         >
-          <Link to={item.url} onClick={onClick}>
-            {item.title}
-          </Link>
-        </Button>
+          {item.title}
+        </NavLink>
       ))}
     </nav>
   );
@@ -85,7 +92,7 @@ function TableOfContentsDrawer({ navItems }: { navItems: NavItem[] }) {
         <Menu className="size-5" />
       </Button>
       <DrawerContent>
-        <div className="max-h-[50vh] min-h-[30vh] overflow-y-scroll p-4">
+        <div className="max-h-[50vh] overflow-y-scroll p-4 py-8">
           <TableOfContents
             navItems={navItems}
             onClick={() => {
@@ -114,10 +121,10 @@ export default function Documentation({ loaderData }: Route.ComponentProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <Header menu={<TableOfContentsDrawer navItems={loaderData} />} />
-      <div className="container mx-auto flex">
+      <div className="container mx-auto flex grow">
         <DesktopSidebr navItems={loaderData} />
-        <main className="grow px-4 py-8 md:pl-10">
-          <div className="prose max-w-none dark:prose-invert">
+        <main className="w-full grow px-4 py-8 md:pl-10">
+          <div className="prose max-w-none break-all dark:prose-invert">
             <Outlet />
           </div>
         </main>

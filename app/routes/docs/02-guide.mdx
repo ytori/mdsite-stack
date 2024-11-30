@@ -1,0 +1,51 @@
+---
+title: 'Guideline'
+description: 'MDSite Stackの利用方法をガイドします'
+---
+
+## ドキュメントを追加したい？
+
+デフォルトでは、`app/routes/docs` 以下に.mdxもしくは、.mdを配置してください。
+例えば、`app/routes/docs/hello.md` は、`/docs/hello` でアクセスできるようになります。
+
+## ドキュメントの記法のルール
+
+デフォルトでは、[GitHub Flavored Markdown](https://github.github.com/gfm/)に対応しています。[マークダウンの記法](/docs/markdown)に簡単に記法をまとめていますので、こちらも参照ください。
+また、Frontmatterには以下が必要です。
+
+- `title`
+- `description`
+
+Frontmatterのこれらは、`<meta>`タグに利用されます。
+
+```md
+---
+title: Hello World
+description: これはハローワールドに関するドキュメントです
+---
+
+## こんにちは
+
+これは私の最初の記事です。
+```
+
+## ルーティングを変更したい？
+
+`app/routes.ts` を変更しましょう。
+[Route Module](https://reactrouter.com/start/framework/route-module)を参考にしてください。
+
+## スタイルを変更したい？
+
+デフォルトでは、ドキュメントのコンテンツ部分は、[Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography)を利用しています。
+MDXから変換されたコンポーネントに独自のスタイルを当てたい場合は、[@mdx-js/react](https://mdxjs.com/packages/react/)を参考にコンポーネントをカスタマイズしてみましょう。
+
+また、ドキュメントのメニュー部分をカスタマイズしたい場合は、`app/routes/_layout.tsx`を変更してください。
+
+## `<meta>`タグを変更したい？
+
+デフォルトでは、Frontmatterに定義した内容をRoute Moduleの[`meta`](https://reactrouter.com/start/framework/route-module#meta)を経由して、`<meta>`タグに出力しています。
+カスタマイズしたい場合は、`vite.config.ts`の設定を変更してください。
+
+## Remark、Rehypeプラグインを追加したい？
+
+`vite.config.ts`に追加しましょう。

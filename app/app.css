@@ -14,8 +14,8 @@
     background-color: var(--shiki-dark-bg) !important;
   }
 
-  pre {
-    @apply border border-gray-200 dark:border-none;
+  .prose pre {
+    @apply overflow-x-auto border border-gray-200 dark:border-none;
   }
 
   body {

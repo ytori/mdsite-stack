@@ -16,20 +16,21 @@ export default function Home() {
       <Header />
       <main className="container mx-auto flex grow flex-col items-center justify-center">
         <section className="px-4 text-center">
-          <h2 className="mb-8 text-5xl font-bold leading-tight">
+          <h2 className="mb-8 text-5xl font-extrabold leading-tight">
             Build Documentation Sites with Ease
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-800 dark:text-gray-200">
             MDSite Stack is a powerful, flexible stack for creating beautiful
-            documentation websites using Markdown and{' '}
-            <Link to="https://reactrouter.com" reloadDocument>
-              React Rouer v7
-            </Link>
-            .
+            documentation websites using MDX and React Rouer v7 .
           </p>
-          <Button asChild size="lg">
-            <Link to="/docs/hello">Get Started</Link>
-          </Button>
+          <div className="flex items-center justify-center gap-2">
+            <Button asChild variant="default">
+              <Link to="/docs/introduction">Get Started</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link to="/docs/installation">Installation</Link>
+            </Button>
+          </div>
         </section>
       </main>
       <Footer />

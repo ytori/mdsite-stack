@@ -1,6 +1,5 @@
 import { valueToEstree } from 'estree-util-value-to-estree';
 import { type Literal, type Root } from 'mdast';
-import { parse as parseToml } from 'toml';
 import { type Plugin } from 'unified';
 import { parse as parseYaml } from 'yaml';
 
@@ -14,7 +13,6 @@ const remarkReactRouerFrontmatter: Plugin<
 > = ({ meta }) => {
   const allParsers: Record<string, (value: string) => unknown> = {
     yaml: parseYaml,
-    toml: parseToml,
   };
 
   return (ast) => {

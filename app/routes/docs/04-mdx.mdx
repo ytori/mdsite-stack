@@ -1,0 +1,53 @@
+---
+title: 'MDX'
+description: 'MDX'
+---
+
+import { useState } from 'react';
+
+## Frontmatter
+
+### handle
+
+```mdx
+{JSON.stringify(handle)}
+```
+
+{JSON.stringify(handle)}
+
+## Component
+
+```tsx
+export function MyCounter() {
+  const [count, setCount] = useState(0);
+  return (
+    <button
+      className="min-w-20 rounded-md bg-gray-900 p-2 text-gray-50 dark:bg-gray-50 dark:text-gray-900"
+      onClick={() => {
+        setCount((prev) => prev + 1);
+      }}
+    >
+      count:{count}
+    </button>
+  );
+}
+
+MyCounter👉 <MyCounter />
+
+```
+
+export function MyCounter() {
+  const [count, setCount] = useState(0);
+  return (
+    <button
+      className="min-w-20 rounded-md bg-gray-900 px-2 py-1 text-gray-50 dark:bg-gray-50 dark:text-gray-900"
+      onClick={() => {
+        setCount((prev) => prev + 1);
+      }}
+    >
+      count:{count}
+    </button>
+  );
+}
+
+MyCounter👉 <MyCounter />
