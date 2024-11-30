@@ -59,7 +59,7 @@ function TableOfContents({
               buttonVariants({
                 variant: 'link',
               }),
-              'block h-fit whitespace-normal break-all',
+              'block h-fit whitespace-normal',
               isActive && 'font-extrabold',
             )
           }
@@ -131,7 +131,7 @@ export default function Documentation({ loaderData }: Route.ComponentProps) {
       <div className="container mx-auto flex grow">
         <DesktopSidebr navItems={loaderData} />
         <main className="w-full grow px-4 py-8 md:pl-10">
-          <div className="prose max-w-none break-all dark:prose-invert">
+          <div className="prose max-w-none dark:prose-invert">
             <Outlet />
           </div>
         </main>
