@@ -20,7 +20,7 @@ export function generateMeta(props?: { title?: string; description?: string }) {
     },
     {
       property: 'og:image',
-      content: 'mdsitestack-ogp.png',
+      content: '/mdsitestack-ogp.png',
     },
     {
       property: 'twitter:card',
@@ -36,7 +36,7 @@ export function generateMeta(props?: { title?: string; description?: string }) {
     },
     {
       property: 'twitter:image',
-      content: 'mdsitestack-ogp.png',
+      content: '/mdsitestack-ogp.png',
     },
   ];
 }

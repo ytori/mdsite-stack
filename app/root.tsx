@@ -11,7 +11,6 @@ import { ThemeProvider } from '~/components/theme';
 import { script } from '~/components/theme';
 import { components } from '~/components/mdx-components';
 import stylesheet from '~/app.css?url';
-import { Route } from './+types/root';
 
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
