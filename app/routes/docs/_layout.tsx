@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { Menu } from 'lucide-react';
 import { buttonVariants, Button } from '~/components/ui/button';
 import { ScrollArea } from '~/components/ui/scroll-area';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import {
   Drawer,
   DrawerContent,
+  DrawerDescription,
   DrawerTitle,
-  DrawerTrigger,
 } from '~/components/ui/drawer';
 import { Header } from '~/components/header';
 import { Footer } from '~/components/footer';
@@ -92,6 +93,12 @@ function TableOfContentsDrawer({ navItems }: { navItems: NavItem[] }) {
         <Menu className="size-5" />
       </Button>
       <DrawerContent>
+        <VisuallyHidden asChild>
+          <DrawerTitle>Menu</DrawerTitle>
+        </VisuallyHidden>
+        <VisuallyHidden asChild>
+          <DrawerDescription>Table of Contents</DrawerDescription>
+        </VisuallyHidden>
         <div className="max-h-[50vh] overflow-y-scroll p-4 py-8">
           <TableOfContents
             navItems={navItems}
