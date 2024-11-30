@@ -1,154 +1,154 @@
 ---
-title: 'Markdown'
-description: 'マークダウンの記法'
+title: Markdown
+description: An explanation of Markdown syntax
 ---
 
-マークダウン（Markdown）は、テキストを簡単にフォーマットするための軽量マークアップ言語です。ここでは、いくつかの基本的なマークダウン記法を紹介します。
+Markdown is a lightweight markup language for formatting text easily. Here, we introduce some basic Markdown syntax.
 
-## 見出し
+## Headings
 
-見出しは `#` を使って作成します。`#` の数が多いほど、見出しのレベルが下がります。
+Headings are created using `#`. The more `#` symbols there are, the lower the heading level.
 
-例:
-
-```md
-### 見出し1
-
-見出し1のコンテンツ
-
-#### 見出し2
-
-見出し2のコンテンツ
-```
-
-表示結果:
-
-### 見出し1
-
-見出し1のコンテンツ
-
-#### 見出し2
-
-見出し2のコンテンツ
-
-## 太字と斜体
-
-- **太字**: 文字の前後に `**` または `__` を追加します。
-- _斜体_: 文字の前後に `*` または `_` を追加します。
-
-例:
+Example:
 
 ```md
-**これは太字です**
-_これは斜体です_
+### Heading 1
+
+Content for Heading 1
+
+#### Heading 2
+
+Content for Heading 2
 ```
 
-表示結果:
+Rendered as:
 
-**これは太字です**
-_これは斜体です_
+### Heading 1
 
-## リスト
+Content for Heading 1
 
-### 順不同リスト
+#### Heading 2
 
-順不同リストは、`-`、`+`、または `*` を使って作成できます。
+Content for Heading 2
 
-例:
+## Bold and Italic
+
+- **Bold**: Add `**` or `__` before and after the text.
+- _Italic_: Add `*` or `_` before and after the text.
+
+Example:
 
 ```md
-- アイテム 1
-- アイテム 2
-- アイテム 3
+**This is bold**
+_This is italic_
 ```
 
-表示結果:
+Rendered as:
 
-- アイテム 1
-- アイテム 2
-- アイテム 3
+**This is bold**  
+_This is italic_
 
-### 番号付きリスト
+## Lists
 
-番号付きリストは、数字とピリオドを使って作成します。
+### Unordered List
 
-例:
+Unordered lists can be created using `-`, `+`, or `*`.
+
+Example:
 
 ```md
-1. アイテム 1
-2. アイテム 2
-3. アイテム 3
+- Item 1
+- Item 2
+- Item 3
 ```
 
-表示結果:
+Rendered as:
 
-1. アイテム 1
-2. アイテム 2
-3. アイテム 3
+- Item 1
+- Item 2
+- Item 3
 
-## リンク
+### Ordered List
 
-リンクは `[リンクテキスト](URL)` の形式で作成します。
+Ordered lists are created using numbers followed by a period.
 
-例:
+Example:
+
+```md
+1. Item 1
+2. Item 2
+3. Item 3
+```
+
+Rendered as:
+
+1. Item 1
+2. Item 2
+3. Item 3
+
+## Links
+
+Links are created using the format `[Link Text](URL)`.
+
+Example:
 
 ```md
 [Google](https://www.google.com)
 ```
 
-表示結果:
+Rendered as:
 
 [Google](https://www.google.com)
 
-## 画像
+## Images
 
-画像は `![画像の説明](画像URL)` の形式で作成します。
+Images are created using the format `![Alt Text](Image URL)`.
 
-例:
-
-```md
-![サンプル画像](https://via.placeholder.com/150)
-```
-
-表示結果:
-
-![サンプル画像](https://via.placeholder.com/150)
-
-## 引用
-
-引用は `>` を使って作成します。
-
-例:
+Example:
 
 ```md
-> これは引用です。
+![Sample Image](https://via.placeholder.com/150)
 ```
 
-表示結果:
+Rendered as:
 
-> これは引用です。
+![Sample Image](https://via.placeholder.com/150)
 
-## コード
+## Blockquotes
 
-### インラインコード
+Blockquotes are created using `>`.
 
-インラインコードはバッククォート `` ` `` で囲みます。
-
-例:
+Example:
 
 ```md
-`コード`
+> This is a blockquote.
 ```
 
-表示結果:
+Rendered as:
 
-`コード`
+> This is a blockquote.
 
-### 複数行のコード
+## Code
 
-複数行のコードは、3つのバッククォートで囲みます。
+### Inline Code
 
-例:
+Inline code is wrapped in backticks `` ` ``.
+
+Example:
+
+```md
+`code`
+```
+
+Rendered as:
+
+`code`
+
+### Multiline Code
+
+Multiline code is wrapped in three backticks.
+
+Example:
 
 ````md
 ```ts
@@ -158,7 +158,7 @@ console.log(message);
 ```
 ````
 
-表示結果:
+Rendered as:
 
 ```ts
 const message = 'Hello World!';
@@ -166,36 +166,36 @@ const message = 'Hello World!';
 console.log(message);
 ```
 
-## 水平線
+## Horizontal Rules
 
-水平線は `---`、`***`、または `___` を使って作成します。
+Horizontal rules are created using `---`, `***`, or `___`.
 
-例:
+Example:
 
 ```md
 ---
 ```
 
-表示結果:
+Rendered as:
 
 ---
 
-## 表
+## Tables
 
-表は `|` と `-` を使って作成します。
+Tables are created using `|` and `-`.
 
-例:
+Example:
 
 ```md
-| 見出し 1 | 見出し 2 |
+| Header 1 | Header 2 |
 | -------- | -------- |
-| セル 1   | セル 2   |
-| セル 3   | セル 4   |
+| Cell 1   | Cell 2   |
+| Cell 3   | Cell 4   |
 ```
 
-表示結果:
+Rendered as:
 
-| 見出し 1 | 見出し 2 |
+| Header 1 | Header 2 |
 | -------- | -------- |
-| セル 1   | セル 2   |
-| セル 3   | セル 4   |
+| Cell 1   | Cell 2   |
+| Cell 3   | Cell 4   |

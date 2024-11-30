@@ -1,51 +1,51 @@
 ---
-title: 'Guideline'
-description: 'MDSite Stackの利用方法をガイドします'
+title: Guideline
+description: A guide on how to use MDSite Stack
 ---
 
-## ドキュメントを追加したい？
+## Want to add documentation?
 
-デフォルトでは、`app/routes/docs` 以下に.mdxもしくは、.mdを配置してください。
-例えば、`app/routes/docs/hello.md` は、`/docs/hello` でアクセスできるようになります。
+By default, place .mdx or .md files under `app/routes/docs`.
+For example, `app/routes/docs/hello.md` will be accessible at `/docs/hello`.
 
-## ドキュメントの記法のルール
+## Markdown Syntax Rules
 
-デフォルトでは、[GitHub Flavored Markdown](https://github.github.com/gfm/)に対応しています。[マークダウンの記法](/docs/markdown)に簡単に記法をまとめていますので、こちらも参照ください。
-また、Frontmatterには以下が必要です。
+By default, it supports [GitHub Flavored Markdown](https://github.github.com/gfm/). You can find a brief guide to the syntax in the [Markdown Syntax](/docs/markdown), so please refer to that as well.
+Additionally, the following are required in the Frontmatter:
 
 - `title`
 - `description`
 
-Frontmatterのこれらは、`<meta>`タグに利用されます。
+These Frontmatter fields are used in the `<meta>` tags.
 
 ```md
 ---
 title: Hello World
-description: これはハローワールドに関するドキュメントです
+description: This is the documentation about Hello World
 ---
 
-## こんにちは
+## Hello
 
-これは私の最初の記事です。
+This is my first article.
 ```
 
-## ルーティングを変更したい？
+## Want to change routing?
 
-`app/routes.ts` を変更しましょう。
-[Route Module](https://reactrouter.com/start/framework/route-module)を参考にしてください。
+Modify `app/routes.ts`.
+Please refer to the [Route Module](https://reactrouter.com/start/framework/route-module) for more details.
 
-## スタイルを変更したい？
+## Want to change styles?
 
-デフォルトでは、ドキュメントのコンテンツ部分は、[Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography)を利用しています。
-MDXから変換されたコンポーネントに独自のスタイルを当てたい場合は、[@mdx-js/react](https://mdxjs.com/packages/react/)を参考にコンポーネントをカスタマイズしてみましょう。
+By default, the content section of the documentation uses [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography).
+If you want to apply custom styles to the components converted from MDX, refer to [@mdx-js/react](https://mdxjs.com/packages/react/) to customize the components.
 
-また、ドキュメントのメニュー部分をカスタマイズしたい場合は、`app/routes/_layout.tsx`を変更してください。
+To customize the documentation menu, modify `app/routes/_layout.tsx`.
 
-## `<meta>`タグを変更したい？
+## Want to change `<meta>` tags?
 
-デフォルトでは、Frontmatterに定義した内容をRoute Moduleの[`meta`](https://reactrouter.com/start/framework/route-module#meta)を経由して、`<meta>`タグに出力しています。
-カスタマイズしたい場合は、`vite.config.ts`の設定を変更してください。
+By default, the content defined in the Frontmatter is output to the `<meta>` tags via the Route Module's [`meta`](https://reactrouter.com/start/framework/route-module#meta).
+If you want to customize it, modify the settings in `vite.config.ts`.
 
-## Remark、Rehypeプラグインを追加したい？
+## Want to add Remark or Rehype plugins?
 
-`vite.config.ts`に追加しましょう。
+Add them to `vite.config.ts`.

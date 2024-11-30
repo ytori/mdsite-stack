@@ -20,8 +20,8 @@ export default function Home() {
             Build Documentation Sites with Ease
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-800 dark:text-gray-200">
-            MDSite Stack is a powerful, flexible stack for creating beautiful
-            documentation websites using MDX and React Rouer v7 .
+            MDSite Stack is a simple and customizable template for creating
+            documentation sites with React Router v7.
           </p>
           <div className="flex items-center justify-center gap-2">
             <Button asChild variant="default">
